@@ -1,4 +1,4 @@
-<img src="public\logo-buscar.svg" height=100>
+<img src="public/logo-buscar.svg" alt="busCar" height="100">
 
 ## Case Tech - Klubi
 
@@ -25,7 +25,7 @@ Depois é só abrir http://localhost:5173 no navegador.
 
 ### Link Deploy
 
-[Acessar o busCar](LINK_DO_DEPLOY)
+[case-tech-klubi.vercel.app](https://case-tech-klubi.vercel.app/)
 
 ### Decisões técnicas e User Experience
 
@@ -76,7 +76,7 @@ Além disso, os próximos passos naturais seriam:
 
 1. **Se você fosse lançar esse buscador no mercado, qual seria seu modelo de negócios?**
 
-   Um marketplace gratuito para quem compra, com receita vinda de quem vende e de parceiros financeiros. Lojas e concessionárias pagam para anunciar seu carros, e o busCar ganha comissão por compra.
+   Um marketplace gratuito para quem compra, com receita vinda de quem vende e de parceiros financeiros. Lojas e concessionárias pagam para anunciar seus carros, e o busCar ganha comissão por compra.
 
 2. **Como você atrairia seus primeiros usuários? (Estratégia de aquisição, canais, etc)**
 
@@ -84,7 +84,7 @@ Além disso, os próximos passos naturais seriam:
    - Para quem compra, investiria em SEO com páginas por modelo e cidade, como "BYD Dolphin em São Paulo", que é exatamente como as pessoas pesquisam. 
    - Além do SEO, focaria também em AEO para que Inteligências Artificiais tenham o busCar como resposta direta.
    - Um programa de indicação para quem comprou pelo busCar.
-   - Marketing Digital, focando principalmente no Instagram e Linkedin.
+   - Marketing Digital, focando principalmente no Instagram e LinkedIn.
 
 3. **Qual seria sua estimativa de CAC (Custo de Aquisição de Cliente)?**
 
@@ -92,7 +92,7 @@ Além disso, os próximos passos naturais seriam:
 
 4. **Qual seria sua proposta de LTV (Lifetime Value) e como você maximizaria isso?**
 
-   - Lojista: um plano de cerca de R$ 400 por mês, com permanência média de 18 meses, gera um LTV perto de R$ 7.200, quase cinco vezes o CAC.
+   - Lojista: um plano de cerca de R$ 400 por mês, com permanência média de 18 meses, gera um LTV perto de R$ 7.200.
    - Comprador: cada compra com crédito ou seguro rende algo entre R$ 1.000 e R$ 2.000 em comissões, e a pessoa volta a comprar a cada poucos anos.
 
    Para maximizar, a ideia é acompanhar o cliente depois da compra com seguro e revisões e, na hora de trocar de carro, ajudar a vender o usado e encontrar o próximo.
