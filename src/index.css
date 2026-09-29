@@ -30,6 +30,13 @@
     color-scheme: light;
   }
 
+  /* Rolagem suave (âncoras e scroll até os resultados), só para quem não pediu menos movimento */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
   body {
     min-height: 100svh;
     background-color: var(--color-background);
