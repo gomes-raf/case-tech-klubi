@@ -16,6 +16,10 @@
   --color-foreground: #2d3031; /* texto e demais elementos */
   --color-muted: #6b7072; /* texto secundário */
   --color-border: #e4e5e7;
+  --color-success: #166534; /* preço abaixo do orçamento */
+  --color-success-soft: rgb(22 163 74 / 0.12);
+  --color-warning: #92400e; /* preço acima do orçamento, outra cidade */
+  --color-warning-soft: rgb(245 158 11 / 0.16);
 
   /* Tipografia (font-sans é a fonte padrão do Tailwind) */
   --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
