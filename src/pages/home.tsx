@@ -36,6 +36,12 @@ export default function Home() {
     heading?.scrollIntoView({ block: 'start' })
   }
 
+  // "Ver todos os carros" (estado vazio): limpa o formulário e refaz a busca
+  const applyFilters = (next: SearchFilters) => {
+    setFilters(next)
+    handleSearch(next)
+  }
+
   return (
     <>
       <section
@@ -79,7 +85,13 @@ export default function Home() {
         </div>
       </section>
 
-      {response && <SearchResults response={response} headingRef={resultsHeadingRef} />}
+      {response && (
+        <SearchResults
+          response={response}
+          headingRef={resultsHeadingRef}
+          onApplyFilters={applyFilters}
+        />
+      )}
     </>
   )
 }

@@ -85,18 +85,6 @@ export function cleanFilters(filters: SearchFilters): SearchFilters {
 }
 
 /**
- * Menor ajuste nos filtros para o carro entrar na busca exata.
- * Base dos atalhos "Ver em São Paulo" / "Aumentar orçamento para R$ 100.000".
- */
-export function adjustFiltersFor(car: Car, filters: SearchFilters): SearchFilters {
-  return {
-    ...filters,
-    city: matchesCity(car, filters.city) ? filters.city : car.Location,
-    budget: fitsBudget(car, filters.budget) ? filters.budget : roundUpToThousand(car.Price),
-  }
-}
-
-/**
  * Busca em camadas:
  * 1. `results` — o que atende a tudo. Com orçamento, o preço mais próximo do valor
  *    informado vem primeiro (o usuário disse "valor aproximado"); sem, do mais barato.
@@ -164,6 +152,3 @@ function findAlternatives(cars: Car[], wanted: Car[], filters: SearchFilters): C
 /** Ordena pelo preço mais próximo do alvo; sem alvo, do mais barato ao mais caro */
 const byPriceCloseTo = (target: number | null) => (a: Car, b: Car) =>
   target === null ? a.Price - b.Price : Math.abs(a.Price - target) - Math.abs(b.Price - target)
-
-/** 99990 → 100000 */
-const roundUpToThousand = (value: number) => Math.ceil(value / 1000) * 1000

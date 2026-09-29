@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { carTitle, cars, type Car } from '../data/cars'
-import { EMPTY_FILTERS, adjustFiltersFor, searchCars, type SearchFilters } from './search'
+import { EMPTY_FILTERS, searchCars, type SearchFilters } from './search'
 
 const search = (filters: Partial<SearchFilters>) =>
   searchCars(cars, { ...EMPTY_FILTERS, ...filters })
@@ -123,27 +123,5 @@ describe('sugestões', () => {
 
   it('sem marca/modelo, não sugere "parecidos"', () => {
     expect(search({ city: 'São Paulo' }).alternatives).toEqual([])
-  })
-})
-
-describe('adjustFiltersFor', () => {
-  const dolphin = findCar('BYD Dolphin')
-
-  it('sobe o orçamento até o preço do carro, arredondado para o milhar', () => {
-    const filters = { query: 'Dolphin', city: 'São Paulo', budget: 80_000 }
-
-    expect(adjustFiltersFor(dolphin, filters)).toEqual({ ...filters, budget: 100_000 })
-  })
-
-  it('troca a cidade quando o carro está em outro lugar', () => {
-    const filters = { query: 'Dolphin', city: 'Curitiba', budget: null }
-
-    expect(adjustFiltersFor(dolphin, filters)).toEqual({ ...filters, city: 'São Paulo' })
-  })
-
-  it('o filtro ajustado encontra o carro na busca exata', () => {
-    const adjusted = adjustFiltersFor(dolphin, { query: 'Dolphin', city: 'Curitiba', budget: 50_000 })
-
-    expect(searchCars(cars, adjusted).results).toContain(dolphin)
   })
 })
