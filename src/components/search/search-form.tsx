@@ -61,7 +61,7 @@ export default function SearchForm({ filters, onChange, onSubmit }: SearchFormPr
 
       <button
         type="submit"
-        className="mt-1 inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-2xl bg-primary px-7 font-semibold text-on-primary transition hover:bg-primary-hover active:scale-[0.98] motion-reduce:transition-none md:mt-0 md:ml-1 md:h-14 lg:mt-1 lg:ml-0 lg:h-12"
+        className="mt-1 inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-primary px-7 font-semibold text-on-primary transition hover:bg-primary-hover active:scale-[0.98] motion-reduce:transition-none md:mt-0 md:ml-1 md:h-14 lg:mt-1 lg:ml-0 lg:h-12"
       >
         <SearchIcon className="size-5" />
         Buscar

@@ -45,7 +45,7 @@ export default function CarCard({ car, budget = null, misses = [], headingLevel 
             </Heading>
 
             <p className="mt-2 flex items-center gap-1.5 text-sm text-muted">
-              <MapPinIcon className="size-4 shrink-0 text-(--color-primary)" />
+              <MapPinIcon className="size-4 shrink-0" />
               {car.Location}
             </p>
           </div>

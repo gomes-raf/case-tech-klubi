@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
 import HeroVideo from '../components/hero-video'
-import { ArrowRightIcon } from '../components/icons'
 import SearchForm from '../components/search/search-form'
 import SearchResults from '../components/search/search-results'
 import { useMediaQuery } from '../hooks/use-media-query'
@@ -46,16 +45,17 @@ export default function Home() {
     <>
       <section
         id="carros"
-        className="relative isolate scroll-mt-20 lg:grid lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[minmax(0,1fr)_32rem] xl:grid-cols-[minmax(0,1fr)_36rem]"
+        className="relative isolate scroll-mt-20 lg:grid lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[minmax(0,1fr)_calc(29rem_+_max(2rem,50%_-_38rem))] xl:grid-cols-[minmax(0,1fr)_calc(32rem_+_max(2rem,50%_-_38rem))]"
       >
         {/* Vídeo — desktop */}
         <div className="relative hidden lg:block">
           {isDesktop && <HeroVideo {...HERO_VIDEO} />}
         </div>
 
-        {/* Busca — no desktop vira o painel da direita */}
+        {/* Busca — no desktop vira o painel da direita. A coluna soma espaço + painel +
+            a margem do container, para o painel terminar na mesma borda do header */}
         <div className="lg:flex lg:items-center">
-          <div className="mx-auto max-w-7xl px-4 pt-14 pb-20 sm:px-6 md:pt-24 md:pb-28 lg:w-full lg:max-w-[26rem] lg:px-0 lg:py-12 xl:max-w-md">
+          <div className="mx-auto max-w-7xl px-4 pt-14 pb-20 sm:px-6 md:pt-24 md:pb-28 lg:mr-0 lg:ml-12 lg:w-[26rem] lg:max-w-none lg:px-0 lg:py-12 xl:ml-16 xl:w-[28rem]">
             <div className="text-center lg:text-left">
               <h1 className="mx-auto mt-6 max-w-3xl text-4xl font-semibold tracking-tight text-balance md:text-6xl lg:mx-0 lg:mt-0 lg:text-4xl xl:text-5xl">
                 Seu próximo carro está a uma{' '}
@@ -70,16 +70,6 @@ export default function Home() {
 
             <div className="mx-auto mt-10 max-w-5xl md:mt-12 lg:mt-8">
               <SearchForm filters={filters} onChange={setFilters} onSubmit={handleSearch} />
-            </div>
-
-            <div className="mt-10 text-center lg:mt-6 lg:text-left">
-              <a
-                href="#catalogo"
-                className="group inline-flex items-center gap-1.5 text-sm font-semibold text-foreground"
-              >
-                Ver todos os carros no catálogo
-                <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none text-primary" />
-              </a>
             </div>
           </div>
         </div>
