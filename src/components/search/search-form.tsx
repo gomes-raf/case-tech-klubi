@@ -1,14 +1,10 @@
 import { carTitle, cars, cities } from '../../data/cars'
-import { formatCurrency } from '../../lib/format'
 import type { SearchFilters } from '../../lib/search'
 import { CarIcon, MapPinIcon, SearchIcon } from '../icons'
 import Combobox, { type ComboboxOption } from './combobox'
 import PriceInput from './price-input'
 
-const CAR_OPTIONS: ComboboxOption[] = cars.map((car) => ({
-  value: carTitle(car),
-  description: `${formatCurrency(car.Price)} · ${car.Location}`,
-}))
+const CAR_OPTIONS: ComboboxOption[] = [...new Set(cars.map(carTitle))].map((value) => ({ value }))
 
 const CITY_OPTIONS: ComboboxOption[] = cities.map((city) => {
   const total = cars.filter((car) => car.Location === city).length
