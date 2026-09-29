@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Vídeo original (sem compressão) — não vai para o repositório
+video-original/

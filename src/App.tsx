@@ -1,10 +1,13 @@
 import Header from './components/header'
+import Home from './pages/home'
 
 function App() {
   return (
     <>
       <Header />
-      <main className="flex-1"></main>
+      <main className="flex-1">
+        <Home />
+      </main>
     </>
   )
 }
