@@ -15,3 +15,10 @@ export const formatNumber = (value: number) => numberFormatter.format(value)
 /** Remove acentos e deixa minúsculo: "São Paulo" → "sao paulo" */
 export const normalizeText = (text: string) =>
   text.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+
+/** Texto pronto para comparar: "T-Cross" → "t cross", " São  Paulo " → "sao paulo" */
+export const toSearchable = (text: string) =>
+  normalizeText(text).replace(/[^a-z0-9]+/g, ' ').trim()
+
+/** "BYD Dolphin São Paulo" → "byd-dolphin-sao-paulo" */
+export const slugify = (text: string) => toSearchable(text).replaceAll(' ', '-')
