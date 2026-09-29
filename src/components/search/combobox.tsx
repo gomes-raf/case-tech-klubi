@@ -42,15 +42,16 @@ export default function Combobox({
   const [activeIndex, setActiveIndex] = useState(-1)
 
   const term = normalizeText(value.trim())
-  const isExactMatch = options.some((option) => normalizeText(option.value) === term)
-  // Sem texto (ou com uma opção já escolhida) mostra todas as sugestões
+  // Sem texto mostra todas as sugestões; com texto, só as que casam
   const suggestions = (
-    term && !isExactMatch
-      ? options.filter((option) => normalizeText(option.value).includes(term))
-      : options
+    term ? options.filter((option) => normalizeText(option.value).includes(term)) : options
   ).slice(0, maxResults)
 
-  const isListVisible = open && suggestions.length > 0
+  // Texto já completo (ex.: "São Paulo" digitado inteiro): a lista some, para não
+  // cobrir o resto do formulário — nem o botão Buscar
+  const isComplete = suggestions.length === 1 && normalizeText(suggestions[0].value) === term
+
+  const isListVisible = open && suggestions.length > 0 && !isComplete
   const active = activeIndex < suggestions.length ? activeIndex : -1
 
   const close = () => {
@@ -105,6 +106,8 @@ export default function Combobox({
       onClear={() => {
         onChange('')
         inputRef.current?.focus()
+        // Limpar não abre a lista: senão ela cobriria o botão Buscar logo em seguida
+        close()
       }}
       popup={
         <ul

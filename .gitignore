@@ -25,3 +25,6 @@ dist-ssr
 
 # Vídeo original (sem compressão) — não vai para o repositório
 video-original/
+
+# Imagens originais (antes da conversão para WebP) — não vão para o repositório
+image-original/
